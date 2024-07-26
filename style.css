@@ -1,0 +1,132 @@
+:root {
+    --primary-shadow-color: #1414141f;
+    --secondary-shadow-color: #1414141a;
+    --border-color: #eeeeee;
+    --separator-color: #cdcdcd;
+    --text-color: #1f2128;
+    --button-color: #ffce22;
+    --button-hover-color: #ffd84d;
+    --checkbox-checked-color: #2469f6;
+    --checkbox-shadow-color: #2469f655;
+    --checkmark-transition-color: #878787;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    margin-top: 85px;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 14px;
+    font-style: normal;
+    color: var(--text-color);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+
+    width: 370px;
+    height: 326px;
+
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+
+    box-shadow: 0px 8px 15px var(--primary-shadow-color), 0 0 4px var(--secondary-shadow-color);
+    justify-content: center;
+}
+
+section.pages {
+    height: 164px;
+}
+
+section.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 22px 0 22px;
+    height: 42px;
+}
+
+section.submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+}
+
+div.separator {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 20px;
+    padding: 0 15px;
+}
+
+div.separator div {
+    border-bottom: 0.7px solid var(--separator-color);
+}
+
+button {
+    width: 340px;
+    height: 40px;
+    border-style: none;
+    border-radius: 4px;
+    background-color: var(--button-color);
+    font: inherit;
+    cursor: grab;
+}
+
+button:hover {
+    background-color: var(--button-hover-color);
+}
+
+/* Checkbox styling and animation */
+
+input[type="checkbox"] {
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 23px;
+    height: 23px;
+    border: 1px solid var(--separator-color);
+    border-radius: 6px;
+    opacity: 60%;
+    display: grid;
+    place-content: center;
+    transition-property: background-color;
+    transition-duration: 200ms;
+    cursor: grab;
+}
+
+input[type="checkbox"]:active {
+    box-shadow: 0 0 0 3px var(--checkbox-shadow-color);
+}
+
+input[type="checkbox"]:active::before {
+    background-color: var(--checkmark-transition-color);
+    transform: scale(1);
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--checkbox-checked-color);
+    border-color: var(--checkbox-checked-color);
+    opacity: 100%;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 17px;
+    height: 12px;
+    transform: scale(0);
+    background-color: white;
+    clip-path: polygon(39% 89%, 93% 0, 98% 4%, 40% 100%, 0 53%, 5% 48%);
+    transition: background-color 100ms;
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
